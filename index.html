@@ -192,7 +192,9 @@
     let selectionSummary = '';
     activeItems.forEach((item, index) => {
       const qty = parseInt(document.getElementById(`qty-${index}`).value || '0', 10);
-      selectionSummary += `${productLetters[index]}${qty}`;
+      if (qty > 0) {
+        selectionSummary += `${productLetters[index]}${qty}`;
+      }
     });
 
     const fullReference = `${reference}-${selectionSummary}`;

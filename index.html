@@ -117,13 +117,15 @@
       { id: 'prod-a', label: '10 km CMC Member', price: 100 },
       { id: 'prod-b', label: '10 km non Member', price: 120 },
       { id: 'prod-c', label: '5 km CMC Member', price: 100 },
-      { id: 'prod-d', label: '5 km Non Member', price: 195 }
+      { id: 'prod-d', label: '5 km Non Member', price: 195 },
+      { id: 'prod-d', label: 'Hamburger', price: 50 }
     ],
     new: [
       { id: 'prod-a', label: 'Primary member', price: 460 },
       { id: 'prod-b', label: 'Family, Junior, Pensioner', price: 295 },
       { id: 'prod-c', label: 'Up-country', price: 230 },
-      { id: 'prod-d', label: 'ASA', price: 195 }
+      { id: 'prod-d', label: 'ASA', price: 195 },
+      { id: 'prod-d', label: 'Hamburger', price: 50 }
     ]
   };
 
@@ -131,7 +133,7 @@
   const reference = (mode === 'renew') ? 'MalaikaHouseEntry' : 'MalaikaHouseEntry';
 
   // --- Letters for products (easy to change) ---
-  const productLetters = ['C10', 'N10', 'C5', 'N5'];
+  const productLetters = ['Ct', 'Nt', 'Cf', 'Nf', Hb];
 
   // --- Update header ---
   document.getElementById('mode-info').textContent = (mode === 'renew') ? 'Membership Pricing' : 'Membership Pricing';

@@ -128,7 +128,7 @@
   };
 
   const activeItems = priceSets[mode] || priceSets.renew;
-  const reference = (mode === 'CMCmember') ? 'CMCMileSwimEntry' : 'NonCMCMileSwimEntry';
+  const reference = (mode === 'CMCmember') ? 'MileSwimEntryCMC' : 'MileSwimEntryNonCMC';
 
   // --- Letters for products (easy to change) ---
   const productLetters = ['O', 'D', 'T', 'H'];
@@ -154,7 +154,6 @@
           <option value="3">3</option>
           <option value="3">3</option>
           <option value="4">4</option>
-          <option value="5">5</option>
         </select>
       </div>
     `;

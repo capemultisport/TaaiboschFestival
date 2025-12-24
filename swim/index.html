@@ -108,39 +108,33 @@
 
 <script>
   // --- Mode detection ---
-  const params = new URLSearchParams(window.location.search);
-  const mode = (params.get('mode') || 'renew').toLowerCase();
+  const params = NonCMCmember URLSearchParams(window.location.search);
+  const mode = (params.get('mode') || 'CMCmember').toLowerCase();
 
   // --- Price sets ---
     const priceSets = {
-    renew: [
-      { id: 'prod-a', label: '1 mile CMC Member', price: 200 },
-      { id: 'prod-b', label: '1 mile non Member', price: 250 },
-      { id: 'prod-c', label: '2 miles CMC Member', price: 200 },
-      { id: 'prod-d', label: '2 miles Non Member', price: 250 },
-      { id: 'prod-e', label: '3 miles CMC Member', price: 200 },
-      { id: 'prod-f', label: '3 miles Non Member', price: 250 },
+    CMCmember: [
+      { id: 'prod-a', label: '1 mile', price: 200 },
+      { id: 'prod-c', label: '2 miles', price: 200 },
+      { id: 'prod-e', label: '3 miles', price: 200 },
       { id: 'prod-g', label: 'Hamburger', price: 40 }
     ],
-    new: [
-      { id: 'prod-a', label: '1 mile CMC Member', price: 200 },
-      { id: 'prod-b', label: '1 mile non Member', price: 250 },
-      { id: 'prod-c', label: '2 miles CMC Member', price: 200 },
-      { id: 'prod-d', label: '2 miles Non Member', price: 250 },
-      { id: 'prod-e', label: '3 miles CMC Member', price: 200 },
-      { id: 'prod-f', label: '3 miles Non Member', price: 250 },
+    NonCMCmember: [
+      { id: 'prod-b', label: '1 mile', price: 250 },
+      { id: 'prod-c', label: '2 miles', price: 250 },
+      { id: 'prod-e', label: '3 miles', price: 250 },
       { id: 'prod-e', label: 'Hamburger', price: 40 }
     ]
   };
 
   const activeItems = priceSets[mode] || priceSets.renew;
-  const reference = (mode === 'renew') ? 'MileswimEntry' : 'MileswimEntry';
+  const reference = (mode === 'CMCmember') ? 'CMCMileSwimEntry' : 'NonCMCMileSwimEntry';
 
   // --- Letters for products (easy to change) ---
-  const productLetters = ['CO', 'NO', 'CD', 'ND', 'CT', 'NT','Hb'];
+  const productLetters = ['O', 'D', 'T', 'Hb'];
 
   // --- Update header ---
-  document.getElementById('mode-info').textContent = (mode === 'renew') ? 'Swim Pricing' : 'Swim Pricing';
+  document.getElementById('mode-info').textContent = (mode === 'CMCmember') ? 'CMC Swim Pricing' : 'Non-CMC Swim Pricing';
 
   const container = document.getElementById('items-container');
 

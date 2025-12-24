@@ -108,7 +108,7 @@
 
 <script>
   // --- Mode detection ---
-  const params = NonCMCmember URLSearchParams(window.location.search);
+  const params = NonMember URLSearchParams(window.location.search);
   const mode = (params.get('mode') || 'CMCmember').toLowerCase();
 
   // --- Price sets ---
@@ -119,7 +119,7 @@
       { id: 'prod-c', label: '3 miles', price: 200 },
       { id: 'prod-d', label: 'Hamburger', price: 40 }
     ],
-    NonCMCmember: [
+    NonMember: [
       { id: 'prod-a', label: '1 mile', price: 250 },
       { id: 'prod-b', label: '2 miles', price: 250 },
       { id: 'prod-c', label: '3 miles', price: 250 },

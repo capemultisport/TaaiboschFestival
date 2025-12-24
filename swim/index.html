@@ -115,15 +115,15 @@
     const priceSets = {
     CMCmember: [
       { id: 'prod-a', label: '1 mile', price: 200 },
-      { id: 'prod-c', label: '2 miles', price: 200 },
-      { id: 'prod-e', label: '3 miles', price: 200 },
-      { id: 'prod-g', label: 'Hamburger', price: 40 }
+      { id: 'prod-b', label: '2 miles', price: 200 },
+      { id: 'prod-c', label: '3 miles', price: 200 },
+      { id: 'prod-d', label: 'Hamburger', price: 40 }
     ],
     NonCMCmember: [
-      { id: 'prod-b', label: '1 mile', price: 250 },
-      { id: 'prod-c', label: '2 miles', price: 250 },
-      { id: 'prod-e', label: '3 miles', price: 250 },
-      { id: 'prod-e', label: 'Hamburger', price: 40 }
+      { id: 'prod-a', label: '1 mile', price: 250 },
+      { id: 'prod-b', label: '2 miles', price: 250 },
+      { id: 'prod-c', label: '3 miles', price: 250 },
+      { id: 'prod-d', label: 'Hamburger', price: 40 }
     ]
   };
 
@@ -131,7 +131,7 @@
   const reference = (mode === 'CMCmember') ? 'CMCMileSwimEntry' : 'NonCMCMileSwimEntry';
 
   // --- Letters for products (easy to change) ---
-  const productLetters = ['O', 'D', 'T', 'Hb'];
+  const productLetters = ['O', 'D', 'T', 'H'];
 
   // --- Update header ---
   document.getElementById('mode-info').textContent = (mode === 'CMCmember') ? 'CMC Swim Pricing' : 'Non-CMC Swim Pricing';

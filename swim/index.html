@@ -108,18 +108,21 @@
 
 <script>
   // --- Mode detection ---
+  
   const params = new URLSearchParams(window.location.search);
-  const mode = (params.get('mode') || 'CMCmember').toLowerCase();
+  //const mode = (params.get('mode') || 'CMCmember').toLowerCase();
+  const rawMode = params.get('mode');
+  const mode = rawMode ? rawMode.toLowerCase() : 'cmcmember';
 
   // --- Price sets ---
     const priceSets = {
-    CMCmember: [
+    cmcmember: [
       { id: 'prod-a', label: '1 mile', price: 200 },
       { id: 'prod-b', label: '2 miles', price: 200 },
       { id: 'prod-c', label: '3 miles', price: 200 },
       { id: 'prod-d', label: 'Hamburger', price: 40 }
     ],
-    NonMember: [
+    nonmemember: [
       { id: 'prod-a', label: '1 mile', price: 250 },
       { id: 'prod-b', label: '2 miles', price: 250 },
       { id: 'prod-c', label: '3 miles', price: 250 },
@@ -127,8 +130,11 @@
     ]
   };
 
-  const activeItems = priceSets[mode] || priceSets.CMCmember;
-  const reference = (mode === 'CMCmember') ? 'MileSwimEntryCMC' : 'MileSwimEntryNonCMC';
+  //const activeItems = priceSets[mode] || priceSets.CMCmember;
+
+  const activeItems = priceSets[mode] || priceSets.cmcmember;
+  
+  const reference = (mode === 'cmcmember') ? 'MileSwimEntryCMC' : 'MileSwimEntryNonCMC';
 
   // --- Letters for products (easy to change) ---
   const productLetters = ['O', 'D', 'T', 'H'];

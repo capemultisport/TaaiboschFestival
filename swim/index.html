@@ -89,12 +89,22 @@
 </style>
 </head>
 <body>
-  <main class="container">
+
+  <style>
+  #mode-info {
+    font-size: 1.25rem; /* This makes it roughly 20px and readable */
+    font-weight: 600;    /* Makes it slightly bolder to act as a sub-header */
+    margin-top: 5px;    /* Adds a little space below the H1 */
+    color: #333;        /* Ensures it is a strong, readable color */
+  }
+</style>
+
+<main class="container">
     <header>
-       <h1 id="page-title">Select your swim distance - you can pay for up to 5 people4</h1>
+      <h1 id="page-title">Select your swim distance - you can pay for up to 5 people</h1>
       <p class="sub" id="mode-info"></p>
     </header>
-
+</main>
     <section id="items-container" class="grid" aria-label="Product list"></section>
 
     <section class="summary" aria-live="polite">
@@ -140,7 +150,7 @@
   const productLetters = ['O', 'D', 'T', 'H'];
 
   // --- Update header ---
-  document.getElementById('mode-info').textContent = (mode === 'cmcmember') ? 'CMC Swim Pricing' : 'Non-CMC Swim Pricing';
+  document.getElementById('mode-info').textContent = (mode === 'cmcmember') ? 'Swim Pricing for CMC members' : 'Swim Pricing for Non-CMC members';
 
   const container = document.getElementById('items-container');
 

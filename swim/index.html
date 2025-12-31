@@ -101,7 +101,7 @@
 
   <main class="container">
     <header>
-       <h1 id="page-title">Select your run distance and extras - you can pay for up to 5 people</h1>
+       <h1 id="page-title">Taaibosch mile</h1>
       <p class="sub" id="mode-info" style="font-size: 24px; font-weight: bold; margin: 10px 0;"></p>
 
     </header>
@@ -150,9 +150,9 @@
   const productLetters = ['O', 'D', 'T', 'H'];
 
   // --- Update header ---
-  document.getElementById('mode-info').textContent = (mode === 'cmcmember') ? 'Swim Pricing for CMC members' : 'Swim Pricing for Non-CMC members';
+  document.getElementById('mode-info').textContent = (mode === 'cmcmember') ? 'Swim Pricing for CMC members - you can pay for up to 5 people' : 'Swim Pricing for Non-CMC members - you can pay for up to 5 people';
 
-  const container = document.getElementById('items-container');
+  const container = document.getElementById('items-container'); 
 
   // Render items
   activeItems.forEach((item, index) => {
@@ -170,6 +170,7 @@
           <option value="3">3</option>
           <option value="3">3</option>
           <option value="4">4</option>
+          <option value="5">5</option>
         </select>
       </div>
     `;

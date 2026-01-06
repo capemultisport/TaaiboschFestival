@@ -89,12 +89,22 @@
 </style>
 </head>
 <body>
+
+  <style>
+  #mode-info {
+    font-size: 1.25rem; /* This makes it roughly 20px and readable */
+    font-weight: 600;    /* Makes it slightly bolder to act as a sub-header */
+    margin-top: 5px;    /* Adds a little space below the H1 */
+    color: #333;        /* Ensures it is a strong, readable color */
+  }
+</style>
+
   <main class="container">
     <header>
-       <h1 id="page-title">Select your run distance and extras - you can pay for up to 5 people</h1>
-      <p class="sub" id="mode-info"></p>
-    </header>
+       <h1 id="page-title">Malaika House Night Run</h1>
+      <p class="sub" id="mode-info" style="font-size: 24px; font-weight: bold; margin: 10px 0;"></p>
 
+    </header>
     <section id="items-container" class="grid" aria-label="Product list"></section>
 
     <section class="summary" aria-live="polite">
@@ -104,41 +114,43 @@
         <button class="btn-primary" type="button" onclick="proceedToPayment()">Proceed to Payment</button>
       </div>
     </section>
-  </main>
+  </main>  
 
 <script>
   // --- Mode detection ---
+  
   const params = new URLSearchParams(window.location.search);
-  const mode = (params.get('mode') || 'renew').toLowerCase();
+  //const mode = (params.get('mode') || 'CMCmember').toLowerCase();
+  const rawMode = params.get('mode');
+  const mode = rawMode ? rawMode.toLowerCase() : 'noncmcmember';
 
   // --- Price sets ---
     const priceSets = {
-    renew: [
-      { id: 'prod-a', label: '10 km CMC Member', price: 100 },
-      { id: 'prod-b', label: '10 km non Member', price: 120 },
-      { id: 'prod-c', label: '5 km CMC Member', price: 100 },
-      { id: 'prod-d', label: '5 km Non Member', price: 195 },
+    cmcmember: [
+      { id: 'prod-a', label: '10 km', price: 100 },
+      { id: 'prod-c', label: '5 km', price: 100 },
       { id: 'prod-e', label: 'Hamburger', price: 40 }
     ],
-    new: [
-      { id: 'prod-a', label: 'Primary member', price: 460 },
-      { id: 'prod-b', label: 'Family, Junior, Pensioner', price: 295 },
-      { id: 'prod-c', label: 'Up-country', price: 230 },
-      { id: 'prod-d', label: 'ASA', price: 195 },
+    noncmcmember: [
+      { id: 'prod-a', label: '10 km', price: 120 },
+      { id: 'prod-c', label: '5 km', price: 120 },
       { id: 'prod-e', label: 'Hamburger', price: 40 }
     ]
   };
 
-  const activeItems = priceSets[mode] || priceSets.renew;
-  const reference = (mode === 'renew') ? 'MalaikaHouseEntry' : 'MalaikaHouseEntry';
+  //const activeItems = priceSets[mode] || priceSets.cmcmember;
+
+  const activeItems = priceSets[mode] || priceSets.cmcmember;
+  
+  const reference = (mode === 'cmcmember') ? 'NighRunEntryCMC' : 'NightRunEntryNonCMC';
 
   // --- Letters for products (easy to change) ---
-  const productLetters = ['Ct', 'Nt', 'Cf', 'Nf', 'Hb'];
+  const productLetters = ['T', 'V', 'H'];
 
   // --- Update header ---
-  document.getElementById('mode-info').textContent = (mode === 'renew') ? 'Membership Pricing' : 'Membership Pricing';
+  document.getElementById('mode-info').textContent = (mode === 'cmcmember') ? 'CMC members - you can pay for up to 5 people' : 'Non-CMC members - you can pay for up to 5 people';
 
-  const container = document.getElementById('items-container');
+  const container = document.getElementById('items-container'); 
 
   // Render items
   activeItems.forEach((item, index) => {

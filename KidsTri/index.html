@@ -128,14 +128,10 @@
   // --- Price sets ---
     const priceSets = {
     cmcmember: [
-      { id: 'prod-a', label: '1 mile', price: 200 },
-      { id: 'prod-b', label: '2 miles', price: 200 },
-      { id: 'prod-c', label: '3 miles', price: 200 }
+      { id: 'prod-a', label: 'CMC Member', price: 100 }
     ],
     noncmcmember: [
-      { id: 'prod-a', label: '1 mile', price: 250 },
-      { id: 'prod-b', label: '2 miles', price: 250 },
-      { id: 'prod-c', label: '3 miles', price: 250 }
+      { id: 'prod-a', label: 'Non CMC Member', price: 150 }
     ]
   };
 
@@ -143,10 +139,10 @@
 
   const activeItems = priceSets[mode] || priceSets.cmcmember;
   
-  const reference = (mode === 'cmcmember') ? 'MileSwimEntryCMC' : 'MileSwimEntryNonCMC';
+  const reference = (mode === 'cmcmember') ? 'KidsTriCMC' : 'KidsTriNonCMC';
 
   // --- Letters for products (easy to change) ---
-  const productLetters = ['O', 'D', 'T'];
+  const productLetters = ['K'];
 
   // --- Update header ---
   document.getElementById('mode-info').textContent = (mode === 'cmcmember') ? 'CMC members - you can pay for up to 5 people' : 'Non-CMC members - you can pay for up to 5 people';
